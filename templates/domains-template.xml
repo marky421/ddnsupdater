@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Domains>
+  <Domain name="example1.com" password="namecheap_dynamic_dns_password_for_example1.com">
+    <Hosts>
+      <Host name="@"/>
+      <Host name="www"/>
+      <Host name="examplehostname1"/>
+      <Host name="examplehostname2"/>
+    </Hosts>
+  </Domain>
+  <Domain name="example2.com" password="namecheap_dynamic_dns_password_for_example2.com">
+    <Hosts>
+      <Host name="@"/>
+      <Host name="www"/>
+      <Host name="examplehostname1"/>
+      <Host name="examplehostname2"/>
+    </Hosts>
+  </Domain>
+</Domains>

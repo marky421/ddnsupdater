@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <Config>
   <!-- Username required to access the namecheap.com API. -->
-  <APIUser>namecheap_api_username</APIUser>
+  <ApiUser>namecheap_api_username</ApiUser>
   <!-- Password used to access the namecheap.com API. -->
-  <APIKey>namecheap_api_key</APIKey>
-  <!-- Username on which a command is executed. Usually this is the same as APIUser. -->
+  <ApiKey>namecheap_api_key</ApiKey>
+  <!-- Username on which a command is executed. Usually this is the same as ApiUser. -->
   <UserName>your_username</UserName>
 </Config>
