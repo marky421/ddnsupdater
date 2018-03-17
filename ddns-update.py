@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import re, xml.etree.ElementTree as ET
+import os, re, xml.etree.ElementTree as ET
 from sys import version_info
 
 if version_info >= (3, 0):
@@ -28,8 +28,11 @@ def buildUpdateURL(host, domain, password, ip):
 def buildCommandURL(args, url = 'https://api.namecheap.com/xml.response?'):
     return url + ''.join([(name + '=' + value + '&') for name, value in args.items()])[:-1]
 
+def getFilePath(fileName):
+    return os.path.join(os.path.dirname(__file__), fileName)
+
 def getConfig():
-    root = ET.parse('config.xml').getroot()
+    root = ET.parse(getFilePath('config.xml')).getroot()
     config = {}
     config['ApiUser']  = root.find('ApiUser').text
     config['ApiKey']   = root.find('ApiKey').text
@@ -59,11 +62,11 @@ def getHostnames_api(config, domain):
     return [host.get('Name') for host in root.iter(ns + 'Host')]
 
 def getDomains():
-    root = ET.parse('domains.xml').getroot()
+    root = ET.parse(getFilePath('domains.xml')).getroot()
     return {domain.get('name'): domain.get('password') for domain in root.findall('Domain')}
 
 def getHostnames(domain):
-    root = ET.parse('domains.xml').getroot()
+    root = ET.parse(getFilePath('domains.xml')).getroot()
     for d in root.findall('Domain'):
         if d.get('name') == domain:
             return [host.get('name') for host in d.iter('Host')]
